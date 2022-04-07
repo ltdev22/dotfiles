@@ -1,6 +1,10 @@
-# . ~/.aliases
 
-# Functions
+
+# Set Variables
+export HOMEBREW_CASK_OPTS="--no-quarantine"
+
+
+# Set Functions
 mkcd() {
     mkdir -p "$@" && cd "$_"
 }

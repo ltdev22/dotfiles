@@ -18,23 +18,4 @@ fi
 brew update
 
 
-# Install
-GIT_VERSION="$(git --version)"
-if [ "$GIT_VERSION" == "command not found" ]; then
-	brew install git
-fi
-
-
-# Install cask apps
-brew tap homebrew/cask-versions
-brew install --cask firefox-developer-edition
-
-brew install --cask google-chrome
-brew install --cask visual-studio-code
-brew install --cask sublime-text
-brew install --cask github
-brew install --cask insomnia
-brew install --cask tableplus
-brew install --cask spotify
-brew install --cask whatsapp
-brew install --cask messenger
+brew bundle --verbose
