@@ -1,0 +1,38 @@
+# Terminal commands
+alias ll="ls -lAFh"
+alias c="clear"
+
+# Git
+alias ga="git add"
+alias gaa="git add ."
+alias gcm="git commit -m"
+alias gcma="git commit --amend -m"
+alias gc="git checkout"
+alias gcb="git checkout -b"
+alias gcd="git checkout -d"
+alias gdiff="git diff"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' 
+--abbrev-commit"
+alias push="git push"
+alias pull="git pull"
+alias gs="git status"
+alias gstash="git stash"
+alias nah="git reset --hard;git clean -df;"
+
+# Docker
+alias di="docker image ls"
+alias dn="docker network ls"
+alias dv="docker volume ls"
+alias dprune="docker system prune --volumes"
+
+alias dc="docker-compose"
+alias dcb="docker-compose build"
+alias dcps="docker-compose ps"
+alias dcup="docker-compose up"
+alias dcupb="docker-compose up --build"
+alias dcupd="docker-compose up -d"
+alias dcstop="docker-compose stop"
+alias dcdown="docker-compose down -v"
+alias dcrun="docker-compose run --rm"
+alias dcexec="docker-compose exec"
+alias dlogs="docker-compose logs -f"

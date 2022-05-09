@@ -12,3 +12,7 @@ echo "Setting up your MacOS..."
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 
+
+# Create a directory for the repositories
+mkdir $HOME/Repositories
+
