@@ -1,5 +1,8 @@
 # dotfiles (WIP)
-My env set up. Based on the repositories: [https://github.com/alexgarrettsmith/dotfiles](https://github.com/alexgarrettsmith/dotfiles), [https://github.com/driesvints/dotfiles](https://github.com/driesvints/dotfiles), [https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos](https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos)
+My env set up. Based on the repositories:
+- [https://github.com/alexgarrettsmith/dotfiles](https://github.com/alexgarrettsmith/dotfiles)
+- [https://github.com/driesvints/dotfiles](https://github.com/driesvints/dotfiles)
+- [https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos](https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos)
 
 
 ## Installation
