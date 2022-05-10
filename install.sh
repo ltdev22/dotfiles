@@ -12,6 +12,9 @@ echo "Setting up your MacOS..."
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 
+# Symlink gitconfig to home dir
+ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+
 
 # Create a directory for the repositories
 mkdir $HOME/Repositories
