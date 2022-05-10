@@ -24,6 +24,7 @@ alias di="docker image ls"
 alias dn="docker network ls"
 alias dv="docker volume ls"
 alias dprune="docker system prune --volumes"
+alias dsa="docker stop $(docker ps -a -q)"
 
 alias dc="docker-compose"
 alias dcb="docker-compose build"
