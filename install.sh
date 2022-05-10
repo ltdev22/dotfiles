@@ -18,7 +18,3 @@ ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
 # Create a directory for the repositories
 mkdir $HOME/Repositories
-
-
-# Setup a new ssh key for Github (Note: make sure this script will run last)
-./ssh.sh
