@@ -9,5 +9,5 @@ source $DOTFILES/.functions
 source $DOTFILES/.aliases
 
 # Show Git branch name
-export PROMPT='%F{yellow}%n@%m %F{green}%c %F{magenta}$(parse_git_branch) 
-%F{normal}%% '
+export PROMPT='%F{yellow}%n@%m %F{green}%1~ %F{magenta}$(parse_git_branch)
+%F{normal}%# '
