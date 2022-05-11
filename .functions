@@ -3,12 +3,6 @@ mkcd() {
     mkdir -p "$@" && cd "$_"
 }
 
-
-# use as e.g. exists brew && echo "exists" || echo "not exists"
-exists() {
-    command -v $1 > /dev/null 2>&1
-}
-
 # Show Git branch name
 parse_git_branch() {
     git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1)/p'

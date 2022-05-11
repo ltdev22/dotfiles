@@ -1,17 +1,15 @@
 #!/bin/sh
 
-echo "\n<< 1. Starting Homebrew setup >>\n"
+echo "\n<< Starting Homebrew setup >>\n"
 
-# Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
+	echo "\nHomebrew doesn't exist. Continuing with install ..\n"
 	xcode-select --install
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+	echo "\nHomebrew already exists. Skipping install..\n"
 fi
 
-# Update Homebrew recipes
+echo "\n<< Updating Homebrew recipes and install brews >>\n"
 brew update
-
 brew bundle --verbose
