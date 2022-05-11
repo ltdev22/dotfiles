@@ -29,3 +29,7 @@ Run the installation with:
 ```
 ~/.dotfiles/install.sh
 ```
+
+## Homebrew
+
+For more casks, formulaes etc browse here [https://formulae.brew.sh/](https://formulae.brew.sh/) and add to the Brewfile.

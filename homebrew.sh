@@ -1,8 +1,6 @@
 #!/bin/sh
 
-
 echo "\n<< 1. Starting Homebrew setup >>\n"
-
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
@@ -13,9 +11,7 @@ if test ! $(which brew); then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-
 # Update Homebrew recipes
 brew update
-
 
 brew bundle --verbose

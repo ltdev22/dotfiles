@@ -1,20 +1,18 @@
 #!/bin/sh
 
-
 echo "Setting up your MacOS..."
-
 
 # Install apps via Homebrew
 ./homebrew.sh
 
-
-# Remove .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles directory
+# Remove .zshrcfrom home directory, if it exists, and create a symlink of the .zshrc file from the .dotfiles directory into home
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
-
-# Symlink gitconfig to home dir
+# .. same for .gitconfig
+rm -rf $HOME/.gitconfig
 ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
+./vscode.sh
 
 # Create a directory for the repositories
 mkdir $HOME/Repositories
