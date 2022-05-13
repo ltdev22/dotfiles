@@ -10,6 +10,6 @@ else
 	echo "\nHomebrew already exists. Skipping install..\n"
 fi
 
-echo "\n<< Updating Homebrew recipes and install brews >>\n"
+echo "\n<< Updating Homebrew recipes and install brews (packages) >>\n"
 brew update
 brew bundle --verbose

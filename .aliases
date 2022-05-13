@@ -1,6 +1,8 @@
 # Terminal commands
 alias ll="ls -lAFh"
 alias c="clear"
+alias bbd="brew bundle dump --force --describe"
+alias trail='<<<${(F)path}' # output in a human friendly format the $PATH - works with single quotes this command
 
 # Git
 alias ga="git add"
