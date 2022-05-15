@@ -10,9 +10,13 @@ ln -s $HOME/.dotfiles/.zshenv $HOME/.zshenv
 ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
 # Install apps via Homebrew
-$DOTFILES/homebrew.sh
-# $DOTFILES/vscode.sh
+source $DOTFILES/homebrew.sh
+
+# source $DOTFILES/vscode.sh
 
 echo "\n<< Create the Repositories forlder >>\n"
 # Create a directory for the repositories
 mkdir $HOME/Repositories
+
+# Set macOS preferences - we will run this last because this will reload the shell
+source $DOTFILES/.macos
