@@ -6,3 +6,5 @@
 [user]
 	name = Lykourgos Tsirikos
 	email = 4200197+ltdev22@users.noreply.github.com
+[init]
+	defaultBranch = main
