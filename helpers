@@ -9,25 +9,25 @@ NC='\033[0m' # No Color
 
 # Helper functions for dotfiles setup
 print_success() {
-    echo -e "\n ${GREEN}✓${NC} $1 \n"
+    echo "\n ${GREEN}✓${NC} $1 \n"
 }
 
 print_info() {
-    echo -e "\n ${BLUE}ℹ${NC} $1 \n"
+    echo "\n ${BLUE}ℹ${NC} $1 \n"
 }
 
 print_warning() {
-    echo -e "\n ${YELLOW}⚠${NC} $1 \n"
+    echo "\n ${YELLOW}⚠${NC} $1 \n"
 }
 
 print_error() {
-    echo -e "\n ${RED}✗${NC} $1 \n"
+    echo "\n ${RED}✗${NC} $1 \n"
 }
 
 print_header() {
-    echo -e "\n${BLUE}========================================${NC}"
-    echo -e "${BLUE} $1${NC}"
-    echo -e "${BLUE}========================================${NC}\n"
+    echo "\n${BLUE}========================================${NC}"
+    echo "${BLUE} $1${NC}"
+    echo "${BLUE}========================================${NC}\n"
 }
 
 # Additional helper functions for common dotfiles tasks

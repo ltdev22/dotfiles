@@ -33,4 +33,4 @@ print_info ">> Finally sourcing new .zshrc"
 source $HOME/.zshrc
 print_header "Setup Complete!"
 print_success "Your MacBook has been configured with your dotfiles"
-echo -e "\n${GREEN}🎉 Happy coding!${NC}\n"
+echo "\n${GREEN}🎉 Happy coding!${NC}\n"
