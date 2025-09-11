@@ -1,25 +1,31 @@
-
 # Setting Variables
 export DOTFILES=$HOME/.dotfiles
 export HOMEBREW_CASK_OPTS="--no-quarantine" # disables MacOS's Gatekeeper when installing brew casks (apps)
 
+# Check if DOTFILES directory exists before sourcing
+if [[ -d "$DOTFILES" ]]; then
+    # Loading aliases and any useful functions
+    [[ -f "$DOTFILES/functions" ]] && source "$DOTFILES/functions"
+    [[ -f "$DOTFILES/aliases" ]] && source "$DOTFILES/aliases"
+else
+    echo "Warning: DOTFILES directory not found at $DOTFILES"
+fi
 
-# Loading aliases and any useful functions
-source $DOTFILES/functions
-source $DOTFILES/aliases
 
-
-# Adding locations to $path array. This is similar to $PATH Variable, 
-# however using the $path array instead PATH, as doing this below:
-#     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-# would cause duplicate entries in $PATH
-typeset -aU path
-path=(
-    $path
-    "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-)
-
+# Adding locations to $PATH Variable
+# Check if we're in zsh to use advanced features
+if [[ -n "$ZSH_VERSION" ]]; then
+    # Use zsh-specific path array to avoid duplicates
+    typeset -aU path
+    path=(
+        $path
+        "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    )
+else
+    # Fallback for other shells
+    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
 
 # Showing the Git branch name on prompt in a nice formatted way
-export PROMPT='%F{yellow}%n@%m %F{green}%1~ %F{magenta}$(parse_git_branch)
-%F{normal}%# '
+export PROMPT='%F{yellow}%n@%m %F{green}%1~ %F{magenta}$(parse_git_branch)%f
+%# '

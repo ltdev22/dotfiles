@@ -24,3 +24,6 @@ echo "\n Updating Homebrew recipes and install brews (packages) \n"
 brew update
 brew tap homebrew/bundle
 brew bundle --verbose --file ./Brewfile
+
+# Remove outdated versions from the cellar.
+brew cleanup
