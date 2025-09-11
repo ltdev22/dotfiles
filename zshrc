@@ -5,8 +5,8 @@ export HOMEBREW_CASK_OPTS="--no-quarantine" # disables MacOS's Gatekeeper when i
 
 
 # Loading aliases and any useful functions
-source $DOTFILES/.functions
-source $DOTFILES/.aliases
+source $DOTFILES/functions
+source $DOTFILES/aliases
 
 
 # Adding locations to $path array. This is similar to $PATH Variable, 
