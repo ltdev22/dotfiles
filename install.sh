@@ -24,7 +24,9 @@ print_success "Homebrew has installed all required apps successfully!"
 
 # Create a directory for cloning all my repositories
 print_info ">> Creating the Repositories forlder in Home directory"
-mkdir $HOME/Repositories
+mkdir -p $HOME/Repositories/_assets
+cp vscode_php_docker $HOME/Repositories/_assets/vscode_php_docker
+chmod +x $HOME/Repositories/_assets/vscode_php_docker
 print_success "The Repositories folder has been created successfully!"
 
 
