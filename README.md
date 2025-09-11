@@ -1,9 +1,14 @@
 # dotfiles
 
-#### For Homebrew:
+#### Homebrew:
+To see sub-commands
+```
+$ brew help
+```
+
 For more casks, formulaes etc refer to the [official Homebrew website](https://formulae.brew.sh/) and add them to the Brewfile or (preferred way) after installing each cask or brew etc, run within the repo
 ```
-brew bundle --verbose
+$ brew bundle --verbose
 ```
 This will update the _Brewfile_ with the latest changes.
 
@@ -27,10 +32,10 @@ $ git clone https://github.com/ltdev22/dotfiles.git ~/.dotfiles
 
 [Generate a new public and private SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 ```
-curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
+$ curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
 ```
 
 Run the installation script
 ```
-~/.dotfiles/install.sh
+$ ~/.dotfiles/install.sh
 ```
