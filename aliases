@@ -2,8 +2,9 @@
 alias ll="ls -lAFh"
 alias c="clear"
 alias bbd="brew bundle dump --force --describe"
-alias trail='<<<${(F)path}' # output in a human friendly format the $PATH - works with single quotes this command
+alias trail='<<<${(F)path}' # output in a human friendly format the $PATH (works with single quotes this command)
 alias today='date +"%d-%m-%Y"'
+alias repos="cd ~/Repositories"
 
 # Git
 alias gs="git status"
