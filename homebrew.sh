@@ -1,15 +1,26 @@
 #!/bin/sh
 
-echo "\n<< Starting Homebrew setup >>\n"
+echo "\n Starting Homebrew setup \n"
 
-if test ! $(which brew); then
-	echo "\nHomebrew doesn't exist. Continuing with install ..\n"
-	xcode-select --install
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Check if Xcode Command Line Tools are installed
+if ! xcode-select -p &>/dev/null; then
+  echo "\n Xcode Command Line Tools not found. Installing... \n "
+  xcode-select --install
 else
-	echo "\nHomebrew already exists. Skipping install..\n"
+  echo "\n Xcode Command Line Tools already installed. \n "
 fi
 
-echo "\n<< Updating Homebrew recipes and install brews (packages) >>\n"
+# Check for Homebrew and install if we don't have it
+if test ! $(which brew); then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+
+# Install all our dependencies with bundle (See Brewfile)
+echo "\n Updating Homebrew recipes and install brews (packages) \n"
 brew update
-brew bundle --verbose
+brew tap homebrew/bundle
+brew bundle --verbose --file ./Brewfile
