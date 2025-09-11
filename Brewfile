@@ -6,13 +6,10 @@ tap "homebrew/core"
 
 # Brews (Packages)
 brew "git"                    # Version control
-brew "docker"                 # Containerization
-brew "docker-compose"         # Multi-container Docker apps
-
+brew "bat"                    # cat files with nice formatting
 
 # Casks (Applications)
 cask "firefox@developer-edition"            # Browser
-cask "docker"                               # Docker Desktop
 cask "github"                               # GitHub Desktop
 cask "insomnia"                             # API client
 cask "sublime-text"                         # Text editor
