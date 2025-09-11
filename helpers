@@ -1,0 +1,62 @@
+#!/bin/sh
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;36m'
+NC='\033[0m' # No Color
+
+# Helper functions for dotfiles setup
+print_success() {
+    echo -e "\n ${GREEN}✓${NC} $1 \n"
+}
+
+print_info() {
+    echo -e "\n ${BLUE}ℹ${NC} $1 \n"
+}
+
+print_warning() {
+    echo -e "\n ${YELLOW}⚠${NC} $1 \n"
+}
+
+print_error() {
+    echo -e "\n ${RED}✗${NC} $1 \n"
+}
+
+print_header() {
+    echo -e "\n${BLUE}========================================${NC}"
+    echo -e "${BLUE} $1${NC}"
+    echo -e "${BLUE}========================================${NC}\n"
+}
+
+# Additional helper functions for common dotfiles tasks
+confirm() {
+    read -r -p "${1:-Are you sure? [y/N]} " response
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+check_command() {
+    if command -v "$1" >/dev/null 2>&1; then
+        print_success "$1 is installed"
+        return 0
+    else
+        print_warning "$1 is not installed"
+        return 1
+    fi
+}
+
+# Check if running on macOS
+check_macos() {
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        print_error "This script is designed for macOS only"
+        exit 1
+    fi
+}

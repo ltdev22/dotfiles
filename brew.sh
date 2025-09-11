@@ -1,13 +1,20 @@
 #!/bin/sh
 
-echo "\n Starting Homebrew setup \n"
+# Source helper functions
+if [[ -n "$DOTFILES" && -f "$DOTFILES/helpers" ]]; then
+  source "$DOTFILES/helpers"
+else
+  source "$(dirname "$0")/helpers"
+fi
+
+print_info ">> Starting Homebrew setup ..."
 
 # Check if Xcode Command Line Tools are installed
 if ! xcode-select -p &>/dev/null; then
-  echo "\n Xcode Command Line Tools not found. Installing... \n "
+  print_info "Xcode Command Line Tools not found. Installing..."
   xcode-select --install
 else
-  echo "\n Xcode Command Line Tools already installed. \n "
+  print_info " Xcode Command Line Tools already installed."
 fi
 
 # Check for Homebrew and install if we don't have it
@@ -20,7 +27,7 @@ fi
 
 
 # Install all our dependencies with bundle (See Brewfile)
-echo "\n Updating Homebrew recipes and install brews (packages) \n"
+print_info "Updating Homebrew recipes and install all brews (packages) from Brewfile ..."
 brew update
 brew tap homebrew/bundle
 brew bundle --verbose --file ./Brewfile

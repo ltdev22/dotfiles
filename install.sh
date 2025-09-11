@@ -1,29 +1,36 @@
 #!/bin/sh
 
-echo "\n >> Setting up your MacOS ... \n"
-
 # Set DOTFILES variable early
 export DOTFILES=$HOME/.dotfiles
 
+# Source helper functions
+source "$DOTFILES/helpers"
+
+
+print_header "Setting up your MacBook with dotfiles"
+
+
 # Remove .zshrc and .gitconfig from home directory, if they exist, and create a symlinks of them from the .dotfiles directory into home
-echo "\n >> Adding symlinks for zshrc and gitconfig to home directory ... \n"
+print_info ">> Adding symlinks for zshrc and gitconfig to home directory"
 rm -rf $HOME/{.zshrc,.gitconfig}
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
-echo "\n Done! \n"
+print_success "Symlinks created successfully!"
 
 # Install apps via Homebrew
-echo "\n >> Installing required apps via Homebrew ... \n"
+print_info ">> Installing required apps via Homebrew"
 source $DOTFILES/brew.sh
-echo "\n Done! \n"
+print_success "Homebrew has installed all required apps successfully!"
 
 # Create a directory for cloning all my repositories
-echo "\n >> Create the Repositories forlder ... \n"
+print_info ">> Creating the Repositories forlder in Home directory"
 mkdir $HOME/Repositories
-echo "\n Done! \n"
+print_success "The Repositories folder has been created successfully!"
 
 
 # Source the new .zshrc to apply changes
-echo "\n >> Sourcing new .zshrc ... \n"
+print_info ">> Finally sourcing new .zshrc"
 source $HOME/.zshrc
-echo "\n Done! \n"
+print_header "Setup Complete!"
+print_success "Your MacBook has been configured with your dotfiles"
+echo -e "\n${GREEN}🎉 Happy coding!${NC}\n"
