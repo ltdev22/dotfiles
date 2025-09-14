@@ -30,7 +30,7 @@ fi
 print_info "Updating Homebrew recipes and install all brews (packages) from Brewfile ..."
 brew update
 brew tap homebrew/bundle
-brew bundle --verbose --file ./Brewfile
+brew bundle --verbose --file $DOTFILES/Brewfile
 
 # Remove outdated versions from the cellar.
 brew cleanup
