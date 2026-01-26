@@ -1,7 +1,12 @@
 # Setting Variables
 export DOTFILES=$HOME/.dotfiles
-# export HOMEBREW_CASK_OPTS="--no-quarantine" # Disables MacOS's Gatekeeper when installing brew casks (apps)
+export REPOS=$HOME/Repositories
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Syntax highlighting for man pages using bat
+
+
+# Enable colors
+autoload -U colors && colors
+
 
 # Check if DOTFILES directory exists before sourcing
 if [[ -d "$DOTFILES" ]]; then
