@@ -1,6 +1,5 @@
-# Setting Variables
-export DOTFILES=$HOME/.dotfiles
-export REPOS=$HOME/Repositories
+# Source environment variables
+[[ -f "$HOME/.dotfiles/variables" ]] && source "$HOME/.dotfiles/variables"
 
 # Syntax highlighting for man pages using bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" 

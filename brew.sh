@@ -1,7 +1,10 @@
 #!/bin/sh
 
+# Source environment variables if DOTFILES is not already set
+[ -z "$DOTFILES" ] && source "$(dirname "$0")/variables"
+
 # Source helper functions
-if [[ -n "$DOTFILES" && -f "$DOTFILES/helpers" ]]; then
+if [ -n "$DOTFILES" ] && [ -f "$DOTFILES/helpers" ]; then
   source "$DOTFILES/helpers"
 else
   source "$(dirname "$0")/helpers"
@@ -30,7 +33,7 @@ fi
 print_info "Updating Homebrew recipes and install all brews (packages) from Brewfile ..."
 brew update
 brew tap homebrew/bundle
-brew bundle --verbose --file $DOTFILES/Brewfile
+brew bundle --verbose --file "$DOTFILES/Brewfile"
 
 # Remove outdated versions from the cellar.
 brew cleanup

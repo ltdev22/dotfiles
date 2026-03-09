@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Central configuration for environment variables used across the dotfiles repository
+# Source this file in any script that needs these variables
+
+export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+export DOCUMENTS="${DOCUMENTS:-$HOME/Documents}"
+export DOWNLOADS="${DOWNLOADS:-$HOME/Downloads}"
+export BACKUPS="${BACKUPS:-$DOCUMENTS/_dotfiles_backups}"
+export REPOS="${REPOS:-$HOME/Repositories}"
