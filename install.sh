@@ -13,6 +13,12 @@ source "$DOTFILES/helpers" || { echo "Failed to source helpers"; exit 1; }
 print_header "Setting up your MacBook with dotfiles ⏳"
 
 
+# Install apps via Homebrew
+print_info "👉 Installing required apps via Homebrew"
+source "$DOTFILES/brew.sh" || { print_error "Homebrew installation failed"; exit 1; }
+print_success "Homebrew has installed all required apps successfully!"
+
+
 # Remove .zshrc and .gitconfig from home directory if they exist and create fresh symlinks of them from the .dotfiles directory into home directory
 print_info "👉 Adding symlinks for zshrc and gitconfig to home directory"
 
@@ -28,11 +34,6 @@ rm -rf "$HOME/.zshrc" "$HOME/.gitconfig"
 ln -s "$DOTFILES/zshrc" "$HOME/.zshrc" || { print_error "Failed to create .zshrc symlink"; exit 1; }
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig" || { print_error "Failed to create .gitconfig symlink"; exit 1; }
 print_success "Symlinks created."
-
-# Install apps via Homebrew
-print_info "👉 Installing required apps via Homebrew"
-source "$DOTFILES/brew.sh" || { print_error "Homebrew installation failed"; exit 1; }
-print_success "Homebrew has installed all required apps successfully!"
 
 # Create a directory for cloning all my repositories
 print_info "👉 Creating the Repositories folder in Home directory"
