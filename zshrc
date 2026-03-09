@@ -1,16 +1,17 @@
 # Setting Variables
 export DOTFILES=$HOME/.dotfiles
 export REPOS=$HOME/Repositories
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Syntax highlighting for man pages using bat
+
+# Syntax highlighting for man pages using bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'" 
 
 
 # Enable colors
 autoload -U colors && colors
 
 
-# Check if DOTFILES directory exists before sourcing
+# Check if DOTFILES directory exists before sourcing and then source the functions and aliases files if they exist
 if [[ -d "$DOTFILES" ]]; then
-    # Loading aliases and any useful functions
     [[ -f "$DOTFILES/functions" ]] && source "$DOTFILES/functions"
     [[ -f "$DOTFILES/aliases" ]] && source "$DOTFILES/aliases"
 else
