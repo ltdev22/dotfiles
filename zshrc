@@ -2,8 +2,9 @@
 [[ -f "$HOME/.dotfiles/variables" ]] && source "$HOME/.dotfiles/variables"
 
 # Syntax highlighting for man pages using bat
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" 
-
+if command -v bat >/dev/null 2>&1; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
 
 # Enable colors
 autoload -U colors && colors
@@ -32,6 +33,10 @@ else
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
+# add personal helper locations so executables are available in every project
+path+=(
+    "$HOME/.php"          # global PHP wrapper
+)
+
 # Showing the Git branch name on prompt in a nice formatted way
-export PROMPT='%F{yellow}%n@%m %F{green}%1~ %F{magenta}$(parse_git_branch)%f
-%# '
+export PROMPT='%F{yellow}%n@%m %F{green}%~%F{magenta}$(parse_git_branch)%f\n%# '
