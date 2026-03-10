@@ -1,49 +1,54 @@
 # Terminal commands
-alias ll="ls -lAFhG" # List files in long format, including hidden files, with human-readable sizes and colorized output
-alias llg="ls -lAFh | grep --color=auto" # List files in long format, including hidden files, with human-readable sizes and colorized output, and filter results using grep with color
-alias hg="history | grep --color=auto" # Show command history and filter results using grep with color
-alias bbd="brew bundle dump --force --describe" # Dump the current Homebrew bundle to a Brewfile, overwriting it if it already exists, and include descriptions for each entry
+alias ll="ls -lAFhG"
+alias llg="ls -lAFh | grep --color=auto"
+alias hg="history | grep --color=auto"
+alias bbd="brew bundle dump --force --describe"
 alias trail='<<<${(F)path}' # output in a human friendly format the $PATH (works with single quotes this command)
-alias today='date +"%d-%m-%Y"' # Show today's date in the format day-month-year
-alias repos="cd $REPOS" # Change directory to the Repositories folder
-alias reload="source $HOME/.zshrc" # Reload the .zshrc file to apply changes
+alias repos="cd $REPOS"
+alias reload="source $HOME/.zshrc"
 
 # Git
-alias gs="git status" # Show the current status of the Git repository, including staged and unstaged changes, untracked files, and the current branch
-alias ga="git add" # Add files to the staging area for the next commit
-alias gaa="git add ." # Add all files in the current directory and its subdirectories to the staging area for the next commit
-alias unga="git restore --staged" # Remove files from the staging area, keeping the changes in the working directory
-alias ungaa="git restore --staged ." # Remove all files from the staging area, keeping the changes in the working directory
-alias gcm="git commit -m" # Create a new Git commit with a message describing the changes
-alias gca="git commit --amend --no-edit" # Amend the most recent commit without changing the commit message, allowing you to add additional changes to the commit
 
-alias gst="git stash" # Stash the current changes in the working directory, allowing you to switch branches or work on something else without committing the changes
-alias gsta="git stash apply" # Apply the most recent stash to the working directory, keeping the stash in the stash list
-alias gstc="git stash clear" # Remove all stashes from the stash list, permanently deleting them
-alias gstd="git stash drop" # Remove the most recent stash from the stash list, permanently deleting it
-alias gstp="git stash pop" # Apply the most recent stash to the working directory and remove it from the stash list, permanently deleting it
+# basic commands
+alias gs="git status"
+alias ga="git add"
+alias gaa="git add ."
+alias unga="git restore --staged"
+alias ungaa="git restore --staged ."
+alias gcm="git commit -m"
+alias gca="git commit --amend --no-edit"
+alias gh="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-alias gcb="git checkout" # Switch to a different branch in the Git repository, or restore files in the working directory to match the state of a specific commit or branch
-alias gdb="git checkout -d" # Create and switch to a new branch based on the current branch, with the specified name, and delete the branch if it already exists
-alias gnb="git checkout -b" # Create and switch to a new branch based on the current branch, with the specified name
-alias gdf="git diff" # Show the differences between the working directory and the index (staging area), or between two commits, or between a commit and the working directory
+# stashing
+alias gst="git stash"
+alias gsta="git stash apply"
+alias gstc="git stash clear"
+alias gstd="git stash drop"
+alias gstp="git stash pop"
 
-alias gh="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # Show the Git commit history in a graphical format, with each commit represented as a node in a graph, and the commit message, author, and relative time displayed in a color-coded format
+# branches and diffs
+alias gcb="git checkout"
+alias gdb="git checkout -d"
+alias gnb="git checkout -b"
+alias gdf="git diff"
 
-alias push="git push" # Push the committed changes to a remote repository, updating the remote branch with the local commits
-alias shove="git push --set-upstream origin" # Push the committed changes to a remote repository and set the upstream tracking reference for the current branch to the specified remote branch, allowing you to use git push and git pull without specifying the remote and branch names in the future
-alias pull="git pull" # Fetch the latest changes from the remote repository and merge them into the current branch, updating the local branch with the changes from the remote branch
-alias grab="git fetch && git checkout" # Fetch the latest changes from the remote repository and switch to the specified branch, updating the local branch with the changes from the remote branch
-alias nah="git reset --hard && git clean -df && git pull" # Reset the current branch to the last commit, discarding all changes in the working directory and staging area, remove all untracked files and directories, and then pull the latest changes from the remote repository, updating the local branch with the changes from the remote branch
-alias mop="git clean -df && git reset --hard && git pull" # Remove all untracked files and directories, reset the current branch to the last commit, discarding all changes in the working directory and staging area, and then pull the latest changes from the remote repository, updating the local branch with the changes from the remote branch
+# pushing and pulling
+alias push="git push"
+alias shove="git push --set-upstream origin"
+alias pull="git pull"
+alias grab="git fetch && git checkout"
+
+# resetting and cleaning
+alias nah="git reset --hard && git clean -df && git pull"
+alias mop="git clean -df && git reset --hard && git pull"
 
 # Docker
-alias di="docker image" # Manage Docker images, including building, listing, and removing images
-alias dn="docker network" # Manage Docker networks, including creating, listing, and removing networks
-alias dv="docker volume" # Manage Docker volumes, including creating, listing, and removing volumes
-alias dnuke="docker system prune -a --volumes --force" # Remove all unused Docker objects, including stopped containers, unused networks, dangling images, and unused volumes, without prompting for confirmation
-alias dkill="docker stop $(docker ps -a -q)" # Stop all running Docker containers by passing the IDs of all containers to the docker stop command
-alias dc="docker compose" # Manage multi-container Docker applications using Docker Compose, including building, starting, stopping, and managing the lifecycle of the application defined in a docker-compose.yml file
-alias dcrun="docker-compose run --rm" # Run a one-off command in a new container based on the service defined in the docker-compose.yml file, and remove the container after the command has finished executing
-alias dch="docker-compose logs -f" # Follow the logs of all containers defined in the docker-compose.yml file, displaying new log entries in real-time as they are generated
-alias dcdn="docker-compose down -v" # Stop and remove all containers defined in the docker-compose.yml file, along with any associated networks and volumes, without prompting for confirmation
+alias di="docker image"
+alias dn="docker network"
+alias dv="docker volume"
+alias dnuke="docker system prune -a --volumes --force"
+alias dkill="docker stop $(docker ps -a -q)"
+alias dc="docker compose"
+alias dcrun="docker-compose run --rm"
+alias dch="docker-compose logs -f"
+alias dcdn="docker-compose down -v"
