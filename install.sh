@@ -37,16 +37,20 @@ print_success "Symlinks created."
 
 
 # Create a directory for cloning all my repositories
-print_info "👉 Creating the Repositories folder in Home directory"
-mkdir -p "$REPOS/_assets" || { print_error "Failed to create repositories directory"; exit 1; }
-cp "$DOTFILES/vscode_php_docker" "$REPOS/_assets/vscode_php_docker" || { print_error "Failed to copy vscode_php_docker"; exit 1; }
-chmod +x "$REPOS/_assets/vscode_php_docker" || { print_error "Failed to make vscode_php_docker executable"; exit 1; }
-print_success "The Repositories folder has been created successfully!"
+print_info "👉 Setting up a directory for repositories and adding some additional configuration for programming.."
+mkdir -p "$REPOS/_assets" || { print_error "Failed to create repositories directory"; exit 1; } # create _assets directory for adding any scripts or files that I want to use across all repositories
+
+print_info "👉 Adding global PHP wrapper to ~/.php/php"
+mkdir -p "$HOME/.php/" || { print_error "Failed to create .php directory"; exit 1; }
+ln -sf "$DOTFILES/vscode_php_docker" "$HOME/.php/php"
+chmod +x "$DOTFILES/vscode_php_docker"  # only needs doing once
+
+print_success "The setting up of a directory for repositories and the additional configuration has been completed successfully!"
 
 
 # Source the new .zshrc to apply changes
 print_info ">> Finally sourcing new .zshrc"
 source "$HOME/.zshrc" || { print_error "Failed to source .zshrc"; exit 1; }
 print_header "Setup Complete! 🎉"
-print_success "Your MacBook has been configured with dotfiles"
+print_success "Your MacBook has been configured with dotfiles ✅"
 echo "\n${GREEN}🙌 Happy coding!${NC}\n"
