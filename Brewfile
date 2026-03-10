@@ -10,10 +10,10 @@ brew "bat"                    # cat files with nice formatting
 
 # Casks (Applications)
 cask "firefox@developer-edition"            # Browser
-cask "duckduckgo"                           # Search engine
+cask "duckduckgo"                           # Browser/Search engine
 cask "github"                               # GitHub Desktop
 cask "insomnia"                             # API client
-cask "sublime-text"                         # Text editor
+cask "sublime-text"                         # Code/Text editor
 cask "visual-studio-code"                   # Code editor
 cask "tableplus"                            # Database GUI
 cask "spotify"                              # Music streaming

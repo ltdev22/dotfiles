@@ -35,6 +35,7 @@ ln -s "$DOTFILES/zshrc" "$HOME/.zshrc" || { print_error "Failed to create .zshrc
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig" || { print_error "Failed to create .gitconfig symlink"; exit 1; }
 print_success "Symlinks created."
 
+
 # Create a directory for cloning all my repositories
 print_info "👉 Creating the Repositories folder in Home directory"
 mkdir -p "$REPOS/_assets" || { print_error "Failed to create repositories directory"; exit 1; }
