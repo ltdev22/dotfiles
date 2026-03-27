@@ -39,4 +39,5 @@ path+=(
 )
 
 # Showing the Git branch name on prompt in a nice formatted way
-export PROMPT='%F{yellow}%n@%m %F{green}%~%F{magenta}$(parse_git_branch)%f\n%# '
+export PROMPT='%F{yellow}%n@%m %F{green}%~ %F{magenta}$(parse_git_branch)%f
+%# '
